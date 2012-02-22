@@ -1,0 +1,66 @@
+<h1>Listing articles</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @articles.each do |article| %>
+  <tr>
+    <td><%= article.name %></td>
+    <td><%= link_to 'Show', article %></td>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+    <td><%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Article', new_article_path %>
+
+
+
+<% if current_user %>
+  Welcome <%= current_user.name %>!
+  <%= link_to "Sign Out", signout_path %>
+<% else %>
+ <%= link_to "Sign in with facebook", "/auth/facebook" %>
+  <%= link_to "Sign in with linkedin", "/auth/linkedin" %>
+ <%= link_to "Sign in with Google", "/auth/google" %>
+ <%= link_to "Sign in with Yahoo", "/auth/yahoo" %>
+
+
+
+
+
+
+<% end %>
+
+
+
+
+
+
+<form action="https://authorize.payments-sandbox.amazon.com/pba/paypipeline" method="post">
+  <input type="hidden" name="immediateReturn" value="1" >
+  <input type="hidden" name="collectShippingAddress" value="0" >
+  <input type="hidden" name="signatureVersion" value="2" >
+  <input type="hidden" name="signatureMethod" value="HmacSHA256" >
+  <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+  <input type="hidden" name="amount" value="USD 50" >
+  <input type="hidden" name="signature" value="YmkJIRrquahXNi5XoB4h5XIjOJ1hZO+QibKfAgobVZ8=" >
+  <input type="hidden" name="isDonationWidget" value="0" >
+  <input type="hidden" name="description" value="pay for book" >
+  <input type="hidden" name="amazonPaymentsAccountId" value="PSVEYNZGCGSV3M8KX3U9HNUZT8APF8R4ZZJK3Z" >
+  <input type="hidden" name="returnUrl" value="http://railsfactory.org" >
+  <input type="hidden" name="processImmediate" value="1" >
+  <input type="hidden" name="cobrandingStyle" value="logo" >
+  <input type="hidden" name="abandonUrl" value="http://railsfactory.org" >
+  <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/beige_small_paynow_withmsg_whitebg.gif" border="0">
+</form>
+
+

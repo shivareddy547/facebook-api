@@ -1,0 +1,16 @@
+# Load the rails application
+require File.expand_path('../application', __FILE__)
+
+# Initialize the rails application
+Facebook2::Application.initialize!
+
+ActionMailer::Base.delivery_method = :smtp
+
+ActionMailer::Base.server_settings = {
+   :address => "smtp.tutorialspoint.com",
+   :port => 25,
+   :domain => "tutorialspoint.com",
+   :authentication => :login,
+   :user_name => "shiva.r547@gmail.com",
+   :password => "9652363670",
+}

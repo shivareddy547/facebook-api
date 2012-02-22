@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+  <title>Facebook2</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+
+
+
+
+
+</head>
+<body>
+
+ 
+
+
+
+
+<%= yield %>
+
+
+<form action="https://authorize.payments-sandbox.amazon.com/pba/paypipeline" method="post">
+  <input type="hidden" name="immediateReturn" value="1" >
+  <input type="hidden" name="collectShippingAddress" value="0" >
+  <input type="hidden" name="signatureVersion" value="2" >
+  <input type="hidden" name="signatureMethod" value="HmacSHA256" >
+  <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+  <input type="hidden" name="referenceId" value="006" >
+  <input type="hidden" name="amount" value="USD 50" >
+  <input type="hidden" name="signature" value="+TCFi9a8NAkIqvyGcK08e1jeTO0vy+Gj9J268oYa99M=" >
+  <input type="hidden" name="isDonationWidget" value="0" >
+  <input type="hidden" name="description" value="goods" >
+  <input type="hidden" name="amazonPaymentsAccountId" value="PSVEYNZGCGSV3M8KX3U9HNUZT8APF8R4ZZJK3Z" >
+  <input type="hidden" name="ipnUrl" value="http://railsfactory.org" >
+  <input type="hidden" name="returnUrl" value="http://railsfactory.org" >
+  <input type="hidden" name="processImmediate" value="1" >
+  <input type="hidden" name="cobrandingStyle" value="logo" >
+  <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/beige_small_paynow_withmsg_whitebg.gif" border="0">
+</form>
+
+
+</body>
+</html>

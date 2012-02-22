@@ -1,0 +1,8 @@
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :facebook, '202697086494962', 'afb0860b89927a8738cbc403fdf7d454'
+provider :linkedin, 'rcyhzlgg3773', 'JmBp9S6mqgYNrSSA'
+provider :openid,  :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id'
+provider :openid,  :name => 'yahoo', :identifier => 'https://me.yahoo.com'
+
+end
+
